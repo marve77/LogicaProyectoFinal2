@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/10/2023 03:16:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Venta" table="venta" catalog="bd_proyecto_final2" optimistic-lock="version">
+        <id name="idFactura" type="int">
+            <column name="ID_FACTURA" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="POJOs.Cliente" fetch="select">
+            <column name="ID_CLIENTE" />
+        </many-to-one>
+        <many-to-one name="detalle" class="POJOs.Detalle" fetch="select">
+            <column name="ID_DETALLE" />
+        </many-to-one>
+        <many-to-one name="empleadoByUsuarioIngresa" class="POJOs.Empleado" fetch="select">
+            <column name="USUARIO_INGRESA" />
+        </many-to-one>
+        <many-to-one name="empleadoByUsuarioModifica" class="POJOs.Empleado" fetch="select">
+            <column name="USUARIO_MODIFICA" />
+        </many-to-one>
+        <property name="fechaVenta" type="timestamp">
+            <column name="FECHA_VENTA" length="19" />
+        </property>
+        <property name="idEmpleado" type="java.lang.Integer">
+            <column name="ID_EMPLEADO" />
+        </property>
+        <property name="fechaIngresa" type="timestamp">
+            <column name="FECHA_INGRESA" length="19" />
+        </property>
+        <property name="fechaModifica" type="timestamp">
+            <column name="FECHA_MODIFICA" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

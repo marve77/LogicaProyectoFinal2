@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/10/2023 03:16:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Cliente" table="cliente" catalog="bd_proyecto_final2" optimistic-lock="version">
+        <id name="idCliente" type="int">
+            <column name="ID_CLIENTE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empleadoByUsuarioIngresa" class="POJOs.Empleado" fetch="select">
+            <column name="USUARIO_INGRESA" />
+        </many-to-one>
+        <many-to-one name="empleadoByUsuarioModifica" class="POJOs.Empleado" fetch="select">
+            <column name="USUARIO_MODIFICA" />
+        </many-to-one>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="ESTADO" />
+        </property>
+        <property name="nombreCliente" type="string">
+            <column name="NOMBRE_CLIENTE" length="60" />
+        </property>
+        <property name="apellidoCliente" type="string">
+            <column name="APELLIDO_CLIENTE" length="60" />
+        </property>
+        <property name="nitCliente" type="string">
+            <column name="NIT_CLIENTE" length="20" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="12" />
+        </property>
+        <property name="fechaIngresa" type="timestamp">
+            <column name="FECHA_INGRESA" length="19" />
+        </property>
+        <property name="fechaModifica" type="timestamp">
+            <column name="FECHA_MODIFICA" length="19" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CLIENTE" />
+            </key>
+            <one-to-many class="POJOs.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

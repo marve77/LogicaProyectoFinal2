@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/10/2023 03:16:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Producto" table="producto" catalog="bd_proyecto_final2" optimistic-lock="version">
+        <id name="idProducto" type="int">
+            <column name="ID_PRODUCTO" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empleadoByUsuarioModifica" class="POJOs.Empleado" fetch="select">
+            <column name="USUARIO_MODIFICA" />
+        </many-to-one>
+        <many-to-one name="empleadoByUsuarioIngresa" class="POJOs.Empleado" fetch="select">
+            <column name="USUARIO_INGRESA" />
+        </many-to-one>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="ESTADO" />
+        </property>
+        <property name="nombreProducto" type="string">
+            <column name="NOMBRE_PRODUCTO" length="60" />
+        </property>
+        <property name="existecnia" type="java.lang.Integer">
+            <column name="EXISTECNIA" />
+        </property>
+        <property name="precioProducto" type="big_decimal">
+            <column name="PRECIO_PRODUCTO" precision="10" />
+        </property>
+        <property name="fechaIngresa" type="timestamp">
+            <column name="FECHA_INGRESA" length="19" />
+        </property>
+        <property name="fechaModifica" type="timestamp">
+            <column name="FECHA_MODIFICA" length="19" />
+        </property>
+        <set name="detalles" table="detalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PRODUCTO" />
+            </key>
+            <one-to-many class="POJOs.Detalle" />
+        </set>
+    </class>
+</hibernate-mapping>
