@@ -20,7 +20,7 @@ import org.hibernate.criterion.Restrictions;
  * @author admin
  */
 public class CRUDEmpleado {
-         public static boolean insert(String estado, String nombreEmpleado, String usuario,String contrasenia) {
+        public static boolean insert(String estado, String nombreEmpleado, String usuario,String contrasenia) {
         boolean bandera = false;
         boolean est=false;
         if(estado.equals("Activo")){
