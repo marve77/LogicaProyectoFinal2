@@ -18,8 +18,8 @@ public class LogicaProyectoFinal {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ParseException {
-        BigDecimal precio = new BigDecimal(200.00);
-//        System.out.println(CRUDs.CRUDProducto.insert("Activo", "Refrigeradora LG", 25, precio, 1));
+        BigDecimal precio = new BigDecimal(5.00);
+//        System.out.println(CRUDs.CRUDProducto.insert("Activo", "CompuMaya", 15, precio, 1));
 //        System.out.println(CRUDs.CRUDProducto.insert(estado, nombreProducto, Integer.SIZE, precio, Integer.SIZE));
 //          CRUDs.CRUDEmpleado.update(1, "Activo", "Marverick Joel Argueta Cifuentes", "Marve77", "12345678");
 //          CRUDs.CRUDProducto.update(1, "refri mabe", 35, precio, 1);
@@ -30,7 +30,8 @@ public class LogicaProyectoFinal {
 //          }
 
 //          System.out.println(CRUDs.CRUDCliente.insert("Activo", "Jóse Ruben", "Herrera Hernandez", "123456", "123045", 1));
-        System.out.println(CRUDs.CRUDDetalle.insert(1, 2, precio));
+//        System.out.println(CRUDs.CRUDDetalle.insert(3, 10, precio));
+System.out.println(CRUDs.CRUDDetalle.eliminar(2));
           
     }
     
