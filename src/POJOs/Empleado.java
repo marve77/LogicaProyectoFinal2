@@ -1,5 +1,5 @@
 package POJOs;
-// Generated 13/10/2023 06:49:52 PM by Hibernate Tools 4.3.1
+// Generated 24/10/2023 12:54:36 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Empleado  implements java.io.Serializable {
 
 
-     private Integer idEmpleado;
+     private int idEmpleado;
      private Boolean estado;
      private String nombreEmpleado;
      private String usuario;
@@ -26,7 +26,12 @@ public class Empleado  implements java.io.Serializable {
     public Empleado() {
     }
 
-    public Empleado(Boolean estado, String nombreEmpleado, String usuario, String contrasenia, Set clientesForUsuarioIngresa, Set productosForUsuarioModifica, Set productosForUsuarioIngresa, Set clientesForUsuarioModifica, Set ventasForUsuarioIngresa, Set ventasForUsuarioModifica) {
+	
+    public Empleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+    public Empleado(int idEmpleado, Boolean estado, String nombreEmpleado, String usuario, String contrasenia, Set clientesForUsuarioIngresa, Set productosForUsuarioModifica, Set productosForUsuarioIngresa, Set clientesForUsuarioModifica, Set ventasForUsuarioIngresa, Set ventasForUsuarioModifica) {
+       this.idEmpleado = idEmpleado;
        this.estado = estado;
        this.nombreEmpleado = nombreEmpleado;
        this.usuario = usuario;
@@ -39,11 +44,11 @@ public class Empleado  implements java.io.Serializable {
        this.ventasForUsuarioModifica = ventasForUsuarioModifica;
     }
    
-    public Integer getIdEmpleado() {
+    public int getIdEmpleado() {
         return this.idEmpleado;
     }
     
-    public void setIdEmpleado(Integer idEmpleado) {
+    public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
     public Boolean getEstado() {

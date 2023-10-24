@@ -57,11 +57,11 @@ public class CRUDEmpleado {
         }
         return bandera;
     }
- public static boolean update(Integer idEmpelado, String nombreEmpelado,String usuario,String contrasenia) {
+ public static boolean update(Integer idEmpleado, String nombreEmpelado,String usuario,String contrasenia) {
         boolean bandera = false;
         Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Empleado.class);
-        criteria.add(Restrictions.eq("idEmpelado", idEmpelado));
+        criteria.add(Restrictions.eq("idEmpelado", idEmpleado));
         Empleado update = (Empleado) criteria.uniqueResult();
         Transaction transaction = null;
 

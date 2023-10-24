@@ -34,7 +34,7 @@ public static List<Detalle> universo() {
     } return lista;
 }
     
-public static boolean insert (int idProducto, Integer cantidad, BigDecimal precioProducto) {
+public static boolean insert (Integer idProducto, Integer cantidad, BigDecimal precioProducto) {
     boolean bandera = false;
     Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
     Criteria criteria = session.createCriteria(Detalle.class);
