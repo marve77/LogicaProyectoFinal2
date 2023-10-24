@@ -8,7 +8,6 @@ package CRUDs;
 import POJOs.Empleado;
 import POJOs.Producto;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
