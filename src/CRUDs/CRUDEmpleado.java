@@ -7,6 +7,7 @@ package CRUDs;
 
 import HibernateUtil.hibernateUtil;
 import POJOs.Empleado;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -56,27 +57,18 @@ public class CRUDEmpleado {
         }
         return bandera;
     }
-     public static boolean update(Integer idEmpleado,String estado, String nombreEmpleado, String usuario,String contrasenia) {
+ public static boolean update(Integer idEmpelado, String nombreEmpelado,String usuario,String contrasenia) {
         boolean bandera = false;
-        boolean est=false;
-        
-        if(estado.equals("Activo")){
-            est=true;
-            if(estado.equals("Inactivo")){
-                est=false;
-            }
-        }
         Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Empleado.class);
-        criteria.add(Restrictions.eq("idEmpleado", idEmpleado));
+        criteria.add(Restrictions.eq("idEmpelado", idEmpelado));
         Empleado update = (Empleado) criteria.uniqueResult();
         Transaction transaction = null;
 
         try {
             transaction = session.beginTransaction();
             if (update != null) {
-                update.setEstado(est);
-                update.setNombreEmpleado(nombreEmpleado);
+                update.setNombreEmpleado(nombreEmpelado);
                 update.setUsuario(usuario);
                 update.setContrasenia(contrasenia);
                 session.update(update);
@@ -94,29 +86,40 @@ public class CRUDEmpleado {
         return bandera;
 
     }
-    public static boolean eliminar(Integer idEmpleado){
-        boolean bandera=false;
+       public static boolean anular(Integer idEmpelado, String estado) {
+        boolean bandera = false;
+        boolean est=false;
+        Date fecha = new Date();
+            if(estado.equals("Activo")){
+                est=true;
+                if(estado.equals("Inactivo")){
+                    est=false;
+            }
+        }
         Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
-        Criteria criteria= session.createCriteria(Empleado.class);
-        criteria.add(Restrictions.eq("idEmpleado", idEmpleado));
-        Empleado eliminar = (Empleado)criteria.uniqueResult();
+        Criteria criteria = session.createCriteria(Empleado.class);
+        criteria.add(Restrictions.eq("idCliente", idEmpelado));
+        Empleado update = (Empleado) criteria.uniqueResult();
         Transaction transaction = null;
-        
+
         try {
-            transaction=session.beginTransaction();
-            if(eliminar != null){
-                session.delete(eliminar);
-                bandera=true;
+            transaction = session.beginTransaction();
+            if (update != null) {
+                update.setEstado(est);
+                session.update(update);
+                bandera = true;
             }
             transaction.commit();
-            
+
         } catch (Exception e) {
-            System.out.println("ERROR"+e);
+            System.out.println("ERROR" + e);
             transaction.rollback();
-        }finally{
+        } finally {
             session.close();
         }
+
         return bandera;
+
     }
      public static List<Empleado> universo(){
         Session session =HibernateUtil.hibernateUtil.getSessionFactory().getCurrentSession();
@@ -125,7 +128,7 @@ public class CRUDEmpleado {
         try {
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Empleado.class);
-            criteria.addOrder(Order.desc("idAlumno"));
+            criteria.addOrder(Order.desc("idEmpleado"));
             criteria.setMaxResults(500);
             lista = criteria.list();
             
@@ -136,10 +139,10 @@ public class CRUDEmpleado {
         }
         return lista;
     }
-     public static Empleado select(Integer idAlumno) {
+     public static Empleado select(Integer idEmpleado) {
         Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Empleado.class);
-        criteria.add(Restrictions.eq("idAlumno", idAlumno));
+        criteria.add(Restrictions.eq("idEmpleado", idEmpleado));
         Empleado select = (Empleado) criteria.uniqueResult();
         if (select == null) {
             select = new Empleado();
