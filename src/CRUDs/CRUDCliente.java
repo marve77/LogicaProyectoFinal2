@@ -170,6 +170,7 @@ public class CRUDCliente {
                 select.setNombreCliente("N/A");
                 select.setApellidoCliente("N/A");
                 select.setTelefono("N/A");
+                select.setIdCliente(0);
             }
            session.close();
            return select;
