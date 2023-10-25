@@ -158,5 +158,21 @@ public class CRUDCliente {
         return bandera;
 
     }
+       
+       public static Cliente select(String nit){
+           boolean bandera=false;
+           Session session=HibernateUtil.hibernateUtil.getSessionFactory().openSession();
+           Criteria criteria=session.createCriteria(Cliente.class);
+           criteria.add(Restrictions.eq("nitCliente", nit));
+           Cliente select=(Cliente)criteria.uniqueResult();
+           if(select==null){
+                select=new Cliente();
+                select.setNombreCliente("N/A");
+                select.setApellidoCliente("N/A");
+                select.setTelefono("N/A");
+            }
+           session.close();
+           return select;
+       }
     
 }
