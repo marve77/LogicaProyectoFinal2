@@ -156,6 +156,22 @@ public class CRUDProducto {
         return bandera;
 
     }
+    public static Producto select(String nombreProducto) {
+        boolean bandera = false;
+        Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Producto.class);
+        criteria.add(Restrictions.eq("nombreProducto", nombreProducto));
+        Producto select = (Producto) criteria.uniqueResult();
+        BigDecimal precio = new BigDecimal(0);
+        if (select == null) {
+            select = new Producto();
+            select.setIdProducto(0);
+            select.setPrecioProducto(precio);
+            select.setExistecnia(0);
+        }
+        session.close();
+        return select;
+    }
 
 
 }

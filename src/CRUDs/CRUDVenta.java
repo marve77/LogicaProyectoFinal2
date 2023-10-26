@@ -102,7 +102,7 @@ public static List<Venta> universo() {
     } return lista;
 }
 
-//public static boolean update (Integer idFactura, Integer idDetalle, Integer idCliente, Integer usuario) {
+//public static boolean update (Integer idFactura, Integer idCliente, Integer usuario) {
 //   boolean bandera = false;
 //   Date fecha = new Date();
 //   Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
@@ -134,7 +134,7 @@ public static List<Venta> universo() {
 //   } finally {
 //       session.close();
 //   } return bandera;
-//} 
+//    } 
     
 }
 
