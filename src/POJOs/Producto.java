@@ -38,7 +38,7 @@ public class Producto  implements java.io.Serializable {
        this.fechaModifica = fechaModifica;
        this.detalles = detalles;
     }
-   
+    
     public Integer getIdProducto() {
         return this.idProducto;
     }
