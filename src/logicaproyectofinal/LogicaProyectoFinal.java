@@ -18,7 +18,7 @@ public class LogicaProyectoFinal {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ParseException {
-        BigDecimal precio = new BigDecimal(500.00);
+        BigDecimal precio = new BigDecimal(50.00);
 //        System.out.println(CRUDs.CRUDProducto.insert("Activo", "CompuMaya", 15, precio, 1));
 //        System.out.println(CRUDs.CRUDProducto.insert(estado, nombreProducto, Integer.SIZE, precio, Integer.SIZE));
 //          CRUDs.CRUDEmpleado.update(1, "Activo", "Marverick Joel Argueta Cifuentes", "Marve77", "12345678");
@@ -37,8 +37,15 @@ public class LogicaProyectoFinal {
 //System.out.println(""+CRUDs.CRUDEmpleado.insert("Activo", "Clara Lopez", "clarlo", "trucutraca"));
 //System.out.println(""+CRUDs.CRUDCliente.insert("Activo", "Chalo", "de Lopez Rivera", "38011131", "45262667", 2));
 //System.out.println(""+CRUDs.CRUDProducto.insert("Activo", "atun", 8, precio, 1));
-//          System.out.println(""+CRUDs.CRUDDetalle.insert(3, 8, precio));
+//          System.out.println(""+CRUDs.CRUDDetalle.insert(1, 8, precio));
 //System.out.println(""+CRUDs.CRUDVenta.insert(6, 8, 1));
-System.out.println(CRUDs.CRUDVenta.eliminar(4));    }
+//System.out.println(CRUDs.CRUDVenta.eliminar(4));    }
+
+
+//        System.out.println(CRUDs.CRUDCliente.insert("Activo", "romeo", "Pascual", "456789", "456987552", 1));
+System.out.println(CRUDs.CRUDProducto.select("refri mabe").getIdProducto());
+        System.out.println(CRUDs.CRUDProducto.select("refri mabe").getPrecioProducto());
+        System.out.println(CRUDs.CRUDProducto.select("refri mabe").getExistecnia());
+    }
     
 }
