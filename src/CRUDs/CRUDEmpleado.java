@@ -61,7 +61,7 @@ public class CRUDEmpleado {
         boolean bandera = false;
         Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Empleado.class);
-        criteria.add(Restrictions.eq("idEmpelado", idEmpleado));
+        criteria.add(Restrictions.eq("idEmpleado", idEmpleado));
         Empleado update = (Empleado) criteria.uniqueResult();
         Transaction transaction = null;
 
@@ -98,7 +98,7 @@ public class CRUDEmpleado {
         }
         Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Empleado.class);
-        criteria.add(Restrictions.eq("idCliente", idEmpelado));
+        criteria.add(Restrictions.eq("idEmpleado", idEmpelado));
         Empleado update = (Empleado) criteria.uniqueResult();
         Transaction transaction = null;
 
@@ -128,6 +128,7 @@ public class CRUDEmpleado {
         try {
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Empleado.class);
+            criteria.add(Restrictions.eq("estado",true));
             criteria.addOrder(Order.desc("idEmpleado"));
             criteria.setMaxResults(500);
             lista = criteria.list();

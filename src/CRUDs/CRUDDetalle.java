@@ -35,7 +35,7 @@ public class CRUDDetalle {
         return lista;
     }
 
-    public static boolean insert(Integer idProducto, Integer cantidad, BigDecimal precioProducto) {
+    public static boolean insert(Integer idProducto, Integer cantidad, BigDecimal precioProducto,BigDecimal total) {
         boolean bandera = false;
         Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Detalle.class);
@@ -54,6 +54,7 @@ public class CRUDDetalle {
                 insert.setCantidad(cantidad);
                 insert.setPrecioProducto(precioProducto);
                 producto.setIdProducto(idProducto);
+                insert.setTotal(total);
                 session.save(insert);
                 bandera = true;
             }

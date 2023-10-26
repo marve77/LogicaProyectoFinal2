@@ -1,5 +1,5 @@
 package POJOs;
-// Generated 24/10/2023 12:54:36 PM by Hibernate Tools 4.3.1
+// Generated 26/10/2023 04:27:11 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -20,8 +20,7 @@ public class Empleado  implements java.io.Serializable {
      private Set productosForUsuarioModifica = new HashSet(0);
      private Set productosForUsuarioIngresa = new HashSet(0);
      private Set clientesForUsuarioModifica = new HashSet(0);
-     private Set ventasForUsuarioIngresa = new HashSet(0);
-     private Set ventasForUsuarioModifica = new HashSet(0);
+     private Set ventas = new HashSet(0);
 
     public Empleado() {
     }
@@ -30,7 +29,7 @@ public class Empleado  implements java.io.Serializable {
     public Empleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
-    public Empleado(int idEmpleado, Boolean estado, String nombreEmpleado, String usuario, String contrasenia, Set clientesForUsuarioIngresa, Set productosForUsuarioModifica, Set productosForUsuarioIngresa, Set clientesForUsuarioModifica, Set ventasForUsuarioIngresa, Set ventasForUsuarioModifica) {
+    public Empleado(int idEmpleado, Boolean estado, String nombreEmpleado, String usuario, String contrasenia, Set clientesForUsuarioIngresa, Set productosForUsuarioModifica, Set productosForUsuarioIngresa, Set clientesForUsuarioModifica, Set ventas) {
        this.idEmpleado = idEmpleado;
        this.estado = estado;
        this.nombreEmpleado = nombreEmpleado;
@@ -40,8 +39,7 @@ public class Empleado  implements java.io.Serializable {
        this.productosForUsuarioModifica = productosForUsuarioModifica;
        this.productosForUsuarioIngresa = productosForUsuarioIngresa;
        this.clientesForUsuarioModifica = clientesForUsuarioModifica;
-       this.ventasForUsuarioIngresa = ventasForUsuarioIngresa;
-       this.ventasForUsuarioModifica = ventasForUsuarioModifica;
+       this.ventas = ventas;
     }
    
     public int getIdEmpleado() {
@@ -107,19 +105,12 @@ public class Empleado  implements java.io.Serializable {
     public void setClientesForUsuarioModifica(Set clientesForUsuarioModifica) {
         this.clientesForUsuarioModifica = clientesForUsuarioModifica;
     }
-    public Set getVentasForUsuarioIngresa() {
-        return this.ventasForUsuarioIngresa;
+    public Set getVentas() {
+        return this.ventas;
     }
     
-    public void setVentasForUsuarioIngresa(Set ventasForUsuarioIngresa) {
-        this.ventasForUsuarioIngresa = ventasForUsuarioIngresa;
-    }
-    public Set getVentasForUsuarioModifica() {
-        return this.ventasForUsuarioModifica;
-    }
-    
-    public void setVentasForUsuarioModifica(Set ventasForUsuarioModifica) {
-        this.ventasForUsuarioModifica = ventasForUsuarioModifica;
+    public void setVentas(Set ventas) {
+        this.ventas = ventas;
     }
 
 

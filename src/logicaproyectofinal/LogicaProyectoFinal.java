@@ -43,9 +43,11 @@ public class LogicaProyectoFinal {
 
 
 //        System.out.println(CRUDs.CRUDCliente.insert("Activo", "romeo", "Pascual", "456789", "456987552", 1));
-System.out.println(CRUDs.CRUDProducto.select("refri mabe").getIdProducto());
-        System.out.println(CRUDs.CRUDProducto.select("refri mabe").getPrecioProducto());
-        System.out.println(CRUDs.CRUDProducto.select("refri mabe").getExistecnia());
+//System.out.println(CRUDs.CRUDProducto.select("refri mabe").getIdProducto());
+//        System.out.println(CRUDs.CRUDProducto.select("refri mabe").getPrecioProducto());
+//        System.out.println(CRUDs.CRUDProducto.select("refri mabe").getExistecnia());
+
+        System.out.println(CRUDs.CRUDVenta.eliminar(1));
     }
     
 }

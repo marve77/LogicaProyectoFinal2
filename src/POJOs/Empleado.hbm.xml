@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 24/10/2023 12:54:36 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 26/10/2023 04:27:11 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="POJOs.Empleado" table="empleado" catalog="bd_proyecto_final2" optimistic-lock="version">
         <id name="idEmpleado" type="int">
@@ -44,15 +44,9 @@
             </key>
             <one-to-many class="POJOs.Cliente" />
         </set>
-        <set name="ventasForUsuarioIngresa" table="venta" inverse="true" lazy="true" fetch="select">
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="USUARIO_INGRESA" />
-            </key>
-            <one-to-many class="POJOs.Venta" />
-        </set>
-        <set name="ventasForUsuarioModifica" table="venta" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="USUARIO_MODIFICA" />
             </key>
             <one-to-many class="POJOs.Venta" />
         </set>

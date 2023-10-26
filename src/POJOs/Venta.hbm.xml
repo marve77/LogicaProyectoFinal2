@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 24/10/2023 12:54:36 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 26/10/2023 04:27:11 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="POJOs.Venta" table="venta" catalog="bd_proyecto_final2" optimistic-lock="version">
         <id name="idFactura" type="int">
@@ -11,15 +11,12 @@
         <many-to-one name="cliente" class="POJOs.Cliente" fetch="select">
             <column name="ID_CLIENTE" />
         </many-to-one>
-        <many-to-one name="detalle" class="POJOs.Detalle" fetch="select">
-            <column name="ID_DETALLE" />
-        </many-to-one>
-        <many-to-one name="empleadoByUsuarioIngresa" class="POJOs.Empleado" fetch="select">
+        <many-to-one name="empleado" class="POJOs.Empleado" fetch="select">
             <column name="USUARIO_INGRESA" />
         </many-to-one>
-        <many-to-one name="empleadoByUsuarioModifica" class="POJOs.Empleado" fetch="select">
-            <column name="USUARIO_MODIFICA" />
-        </many-to-one>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="ESTADO" />
+        </property>
         <property name="fechaVenta" type="timestamp">
             <column name="FECHA_VENTA" length="19" />
         </property>
@@ -29,8 +26,11 @@
         <property name="fechaIngresa" type="timestamp">
             <column name="FECHA_INGRESA" length="19" />
         </property>
-        <property name="fechaModifica" type="timestamp">
-            <column name="FECHA_MODIFICA" length="19" />
-        </property>
+        <set name="detalles" table="detalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_VENTA" />
+            </key>
+            <one-to-many class="POJOs.Detalle" />
+        </set>
     </class>
 </hibernate-mapping>

@@ -41,9 +41,9 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="bd_proyecto_final2"/>
-  <table-filter match-name="venta"/>
+  <table-filter match-name="empleado"/>
   <table-filter match-name="producto"/>
   <table-filter match-name="detalle"/>
-  <table-filter match-name="empleado"/>
   <table-filter match-name="cliente"/>
+  <table-filter match-name="venta"/>
 </hibernate-reverse-engineering>
