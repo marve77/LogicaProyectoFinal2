@@ -29,9 +29,8 @@ public class CRUDVenta {
         boolean bandera = false;
         Date fecha = new Date();
         Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Venta.class);
-        criteria.createAlias("cliente", "b");
-        criteria.add(Restrictions.eq("b.idCliente", idCliente));
+         Criteria criteria = session.createCriteria(Venta.class);
+         criteria.add(Restrictions.eq("estado",false));
         Venta insert = (Venta) criteria.uniqueResult();
         Transaction transaction = null;
         try {
@@ -102,13 +101,12 @@ public class CRUDVenta {
         return lista;
     }
 
-    public static Venta select(Integer idCliente) {
+    public static POJOs.Venta select(boolean estado) {
         boolean bandera = false;
         Session session = HibernateUtil.hibernateUtil.getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Venta.class);
-        criteria.createAlias("cliente", "c");
-        criteria.add(Restrictions.eq("c.idCliente", idCliente));
-        Venta select = (Venta) criteria.uniqueResult();
+        Criteria criteria = session.createCriteria(POJOs.Venta.class);
+        criteria.add(Restrictions.eq("estado", estado));
+        POJOs.Venta select = (POJOs.Venta) criteria.uniqueResult();
         if (select == null) {
             select = new Venta();
             select.setIdFactura(0);

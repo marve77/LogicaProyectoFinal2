@@ -1,5 +1,5 @@
 package POJOs;
-// Generated 26/10/2023 04:27:11 PM by Hibernate Tools 4.3.1
+// Generated 27/10/2023 03:45:55 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class Venta  implements java.io.Serializable {
 
 
-     private int idFactura;
+     private Integer idFactura;
      private Cliente cliente;
      private Empleado empleado;
      private Boolean estado;
@@ -24,12 +24,7 @@ public class Venta  implements java.io.Serializable {
     public Venta() {
     }
 
-	
-    public Venta(int idFactura) {
-        this.idFactura = idFactura;
-    }
-    public Venta(int idFactura, Cliente cliente, Empleado empleado, Boolean estado, Date fechaVenta, Integer idEmpleado, Date fechaIngresa, Set detalles) {
-       this.idFactura = idFactura;
+    public Venta(Cliente cliente, Empleado empleado, Boolean estado, Date fechaVenta, Integer idEmpleado, Date fechaIngresa, Set detalles) {
        this.cliente = cliente;
        this.empleado = empleado;
        this.estado = estado;
@@ -39,11 +34,11 @@ public class Venta  implements java.io.Serializable {
        this.detalles = detalles;
     }
    
-    public int getIdFactura() {
+    public Integer getIdFactura() {
         return this.idFactura;
     }
     
-    public void setIdFactura(int idFactura) {
+    public void setIdFactura(Integer idFactura) {
         this.idFactura = idFactura;
     }
     public Cliente getCliente() {

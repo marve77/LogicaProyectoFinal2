@@ -1,5 +1,5 @@
 package POJOs;
-// Generated 26/10/2023 04:27:11 PM by Hibernate Tools 4.3.1
+// Generated 27/10/2023 03:45:55 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Empleado  implements java.io.Serializable {
 
 
-     private int idEmpleado;
+     private Integer idEmpleado;
      private Boolean estado;
      private String nombreEmpleado;
      private String usuario;
@@ -25,12 +25,7 @@ public class Empleado  implements java.io.Serializable {
     public Empleado() {
     }
 
-	
-    public Empleado(int idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
-    public Empleado(int idEmpleado, Boolean estado, String nombreEmpleado, String usuario, String contrasenia, Set clientesForUsuarioIngresa, Set productosForUsuarioModifica, Set productosForUsuarioIngresa, Set clientesForUsuarioModifica, Set ventas) {
-       this.idEmpleado = idEmpleado;
+    public Empleado(Boolean estado, String nombreEmpleado, String usuario, String contrasenia, Set clientesForUsuarioIngresa, Set productosForUsuarioModifica, Set productosForUsuarioIngresa, Set clientesForUsuarioModifica, Set ventas) {
        this.estado = estado;
        this.nombreEmpleado = nombreEmpleado;
        this.usuario = usuario;
@@ -42,11 +37,11 @@ public class Empleado  implements java.io.Serializable {
        this.ventas = ventas;
     }
    
-    public int getIdEmpleado() {
+    public Integer getIdEmpleado() {
         return this.idEmpleado;
     }
     
-    public void setIdEmpleado(int idEmpleado) {
+    public void setIdEmpleado(Integer idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
     public Boolean getEstado() {

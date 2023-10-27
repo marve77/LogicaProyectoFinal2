@@ -1,5 +1,5 @@
 package POJOs;
-// Generated 26/10/2023 04:27:11 PM by Hibernate Tools 4.3.1
+// Generated 27/10/2023 03:45:55 AM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -10,9 +10,10 @@ import java.math.BigDecimal;
 public class Detalle  implements java.io.Serializable {
 
 
-     private int idDetalle;
+     private Integer idDetalle;
      private Producto producto;
      private Venta venta;
+     private Boolean estado;
      private Integer cantidad;
      private BigDecimal precioProducto;
      private BigDecimal total;
@@ -20,24 +21,20 @@ public class Detalle  implements java.io.Serializable {
     public Detalle() {
     }
 
-	
-    public Detalle(int idDetalle) {
-        this.idDetalle = idDetalle;
-    }
-    public Detalle(int idDetalle, Producto producto, Venta venta, Integer cantidad, BigDecimal precioProducto, BigDecimal total) {
-       this.idDetalle = idDetalle;
+    public Detalle(Producto producto, Venta venta, Boolean estado, Integer cantidad, BigDecimal precioProducto, BigDecimal total) {
        this.producto = producto;
        this.venta = venta;
+       this.estado = estado;
        this.cantidad = cantidad;
        this.precioProducto = precioProducto;
        this.total = total;
     }
    
-    public int getIdDetalle() {
+    public Integer getIdDetalle() {
         return this.idDetalle;
     }
     
-    public void setIdDetalle(int idDetalle) {
+    public void setIdDetalle(Integer idDetalle) {
         this.idDetalle = idDetalle;
     }
     public Producto getProducto() {
@@ -53,6 +50,13 @@ public class Detalle  implements java.io.Serializable {
     
     public void setVenta(Venta venta) {
         this.venta = venta;
+    }
+    public Boolean getEstado() {
+        return this.estado;
+    }
+    
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
     public Integer getCantidad() {
         return this.cantidad;
